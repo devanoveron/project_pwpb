@@ -7,7 +7,7 @@ if (isset($_SESSION['pesan'])) {
 <table cellspacing=0>
     <tr>
         <th class="th-none">
-            <a href="#popup" class="tombol tombol-biru" id="tambahdata">Tambah Data</a></th>
+            <a href="#popup" class="tombol tombol-biru" id="tambahdatamasuk">Tambah Data</a></th>
         <th class="th-none"></th>
         <th class="th-none"></th>
         <th class="th-none"></th>
@@ -45,7 +45,7 @@ if (isset($_SESSION['pesan'])) {
                 <td><?= $data["perihal"] ?></td>
                 <td><?= $data["dituju"] ?></td>
                 <td class="icon">
-                    <a href="#popup" id="editsurat"><i class="fa fa-pencil" id="edit"></i></a>
+                    <a href="#popup" class="editsuratmasuk" data-id="<?= $data['id_suratMasuk']?>"><i class="fa fa-pencil" id="edit"></i></a>
                     <span>|</span>
                     <a href="<?= BASEURL ?>/suratmasuk/hapus/<?= $data['id_suratMasuk'] ?>" onclick="return confirm('yakin ingin menghapus arsip surat?')" style="color:red;"><i class="fa fa-trash" id="hapus"></i></a>
 
@@ -64,31 +64,32 @@ if (isset($_SESSION['pesan'])) {
 
     <div class="popup">
         <div class="kotakpop">
-            <h2 id="judulpopup">Tambah Data Surat</h2>
+            <h2 id="judulpopupmasuk">Tambah Data Surat</h2>
             <a href="" class="close">X</a><br><br>
         </div><br><br>
-        <form action="<?= BASEURL ?>/suratmasuk/tambah" method="post">
+        <form action="<?= BASEURL ?>/suratmasuk/tambah" method="post" id="formUbahMasuk">
             <div class="kiri">
+            <input type="hidden" name="id" id="id_suratmasuk">
                 <label for="">Alamat pengirim</label><br>
-                <input type="text" name="alamat" required autocomplete="off">
+                <input type="text" name="alamat" id="alamatpengirim" required autocomplete="off">
                 <br><br>
                 <label for="">Nomor</label><br>
-                <input type="number" name="nomor" required autocomplete="off">
+                <input type="number" name="nomor" id="nomor" required autocomplete="off">
                 <br><br>
                 <label for="">Lampiran</label><br>
-                <input type="number" name="lampiran" required autocomplete="off">
+                <input type="number" name="lampiran" id="lampiran" required autocomplete="off">
             </div>
 
             <div class="kanan">
                 <label for="">Perihal</label><br>
-                <input type="text" name="perihal" required autocomplete="off">
+                <input type="text" name="perihal" id="perihal" required autocomplete="off">
                 <br><br>
                 <label for="">Dituju</label><br>
-                <input type="text" name="dituju" required autocomplete="off"><br>
+                <input type="text" name="dituju" id="dituju" required autocomplete="off"><br>
             </div>
             <div class="bataltambah">
                 <a href="" class="tombol tombol-light" id="batal">Batal</a>
-                <button type="submit" name="tambahdata" id="tombolpopup" class="tombol tombol-biru tambahsmasuk">Tambah Data</button>
+                <button type="submit" name="tambahdata" id="tombolpopupmasuk" class="tombol tombol-biru tambahsmasuk">Tambah Data</button>
             </div>
         </form>
     </div>

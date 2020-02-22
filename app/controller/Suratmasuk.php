@@ -49,4 +49,20 @@ class Suratmasuk extends Controller
             exit;
         }
     }
+
+    public function getUbah(){
+    echo json_encode( $this->model('Suratmasuk_model')->getubah($_POST['id']));
+    }
+
+    public function ubah(){
+        if ($this->model('suratmasuk_model')->ubah($_POST) > 0) {
+            Pesan::setPesan('Data surat', 'berhasil', 'diubah', 'berhasil');
+            header('location:' . BASEURL . '/suratmasuk');
+            exit;
+        } else {
+            Pesan::setPesan('Data surat', 'gagal', 'diubah', 'gagal');
+            header('location:' . BASEURL . '/suratmasuk');
+            exit;
+        }
+    }
 }
