@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $data['judul'] ?></title>
-    <link rel="stylesheet" href="<?= BASEURL?>/css/master.css">
-    <link rel="stylesheet" href="<?= BASEURL?>/css/master1.css">
+    <link rel="stylesheet" href="<?= BASEURL?>/css/style5.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
+    <?php 
+    if($_SESSION['status']!= 'login'){
+        header('location:'.BASEURL.'/login');
+    }
+    ?>
     <input type="checkbox" id="check">
     <label for="check">
         <i class="fa fa-navicon" id="open"></i>
@@ -23,9 +27,9 @@
         </header>
         <ul>
             <li><a href="<?= BASEURL?>/home"><i class="fa fa-home"></i>Home </a> </li>
-            <li><a href="#popup"><i class="fa fa-edit"></i>Tambah Surat </a> </li>
             <li><a href="<?= BASEURL?>/suratmasuk"><i class="fa fa-download"></i>Surat masuk </a> </li>
             <li><a href="<?= BASEURL?>/suratkeluar"><i class="fa fa-upload"></i>Surat Keluar </a> </li>
+            <li><a href="#profile"><i class="fa fa-user"></i>Profile </a> </li>
             <li><a href="<?= BASEURL?>/logout"><i class="fa fa-power-off"></i>Log out </a> </li>
         </ul>
     </div>
@@ -35,6 +39,6 @@
         </div>
         <div class="navbar">
             <h1>SKENSA LETTERING</h1>
-            <img src="../asset/image/logoskensa.png" alt="">
+            <img src="<?= BASEURL?>/image/logoskensa.png" alt="">
 
         </div>
